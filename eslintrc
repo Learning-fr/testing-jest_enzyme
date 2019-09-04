@@ -6,6 +6,7 @@
     "node": true
   },
   "settings": {
+    "indent": ["error", 2],
     "react": {
       "version": "detect"
     }
