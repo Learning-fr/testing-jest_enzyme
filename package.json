@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "format": "prettier --write \"src/**/*.js\"",
+    "eslint-fix": "eslint --fix \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -24,13 +26,19 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "babel-eslint": "^10.0.1",
     "css-loader": "^1.0.0",
+    "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.8",
+    "eslint": "^5.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-react": "^7.12.3"
   },
   "dependencies": {
     "react-hot-loader": "^4.12.12"
