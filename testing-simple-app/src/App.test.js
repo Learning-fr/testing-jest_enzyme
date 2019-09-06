@@ -67,3 +67,50 @@ test('clicking button increment counter display', () => {
   const counterDisplay = findByDataAttr(wrapper, 'counter-display');
   expect(counterDisplay.text()).toContain(counter + 1);
 })
+
+test('clicking button decrement counter display', () => {
+  const counter = 7;
+  const wrapper = setup(null, { counter });
+
+  //Simulate button click
+  const button = findByDataAttr(wrapper, 'decrement-button');
+  button.simulate('click');
+  wrapper.update();
+  //Test if counterdisplay contains counter + 1
+  const counterDisplay = findByDataAttr(wrapper, 'counter-display');
+  expect(counterDisplay.text()).toContain(counter - 1);
+})
+
+test('clicking button not decrementing if counter is equal to 0', () => {
+  const counter = 0;
+  const wrapper = setup(null, { counter });
+  const button = findByDataAttr(wrapper, 'decrement-button');
+  button.simulate('click');
+  wrapper.update();
+  //Test if counterdisplay contains negative number
+  const counterDisplay = findByDataAttr(wrapper, 'counter-display');
+  expect(counterDisplay.text()).toContain(counter);
+})
+
+test('clicking button not decrementing because is 0 display error message', () => {
+  const counter = 0;
+  const wrapper = setup(null, { counter });
+  const button = findByDataAttr(wrapper, 'decrement-button');
+  button.simulate('click');
+  wrapper.update();
+
+  //Test if error is shown
+  const errorDisplay = findByDataAttr(wrapper, 'error-display');
+  expect(errorDisplay.length).toBe(1);
+})
+
+test('clicking increment button from 0 clear error message display', () => {
+  const counter = 0;
+  const wrapper = setup(null, { counter, errors: true });
+  //Simulate button click
+  const button = findByDataAttr(wrapper, 'increment-button');
+  button.simulate('click');
+  wrapper.update();
+  const errorDisplay = findByDataAttr(wrapper, 'error-display');
+  expect(errorDisplay.length).toBe(0);
+})
