@@ -12,7 +12,7 @@ const Congrats = ({ success }) => {
   return (
     success ?
       <div data-test="component-congrats">
-        <span data-test="congrats-message">
+        <span data-test="congrats-message" className="alert alert-success">
           Congratulations! You guessed the word
       </span>
       </div>
